@@ -1,71 +1,21 @@
+import { Storie } from "./Storie"
+
 export const Stories = () => {
+    const stories_Users = [
+        {name: 'Mike', img: 'avatar0.png'}, 
+        {name: 'dona_Benta', img: 'avatar2.png'},
+        {name: 'avatar', img: 'avatar3.png'},
+        {name: 'AntonietaMS', img: 'avatar4.png'},
+        {name: 'dogão', img: 'avatar5.png'},
+        {name: 'gatão', img: 'avatar6.png'},
+        {name: 'Rau_fotografias', img: 'avatar7.png'},
+        {name: 'Mario Bros', img: 'avatar8.png'}
+    ]
+
     return (
         <div class="stories">
             <div class="stories_slider">
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar0.png" alt="" />
-                        </div>
-                        <div class="userName_story">Mike</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar2.png" alt="" />
-                        </div>
-                        <div class="userName_story">dona_Benta</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar3.png" alt="" />
-                        </div>
-                        <div class="userName_story">avatar</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar4.png" alt="" />
-                        </div>
-                        <div class="userName_story">AntonietaMS</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar5.png" alt="" />
-                        </div>
-                        <div class="userName_story">dogão</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar6.png" alt="" />
-                        </div>
-                        <div class="userName_story">gatão</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar7.png" alt="" />
-                        </div>
-                        <div class="userName_story">Rau_fotografias</div>
-                    </a>
-                </div>
-                <div class="story">
-                    <a href="">
-                        <div class="bg-img">
-                            <img src="./media/imgs/avatar8.png" alt="" />
-                        </div>
-                        <div class="userName_story">Mario Bros</div>
-                    </a>
-                </div>
+                {stories_Users.map((user) => <Storie img={user.img} name={user.name} />)}
             </div>
 
             {/* Slider Button */}
