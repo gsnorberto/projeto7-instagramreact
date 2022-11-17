@@ -1,4 +1,4 @@
-export const Post = ({ name, userImg, postImg, likedBy, comments, date }) => {
+export const Post = ({ name, userImg, postImg, video, likedBy, comments, date }) => {
     return (
         <div className="post">
             {/* Logo and Nickname  */}
@@ -16,7 +16,15 @@ export const Post = ({ name, userImg, postImg, likedBy, comments, date }) => {
 
             {/* Image */}
             <a href="">
-                <img src={`./media/imgs/${postImg}`} alt="" />
+                {postImg ?
+                    <img src={`./media/imgs/${postImg}`} alt="" /> : ''
+                }
+                {video ?
+                    <video width="320" height="240" autoPlay muted>
+                        <source src={`./media/videos/${video}.mp4`} type="video/mp4" />
+                        <source src={`./media/videos/${video}.ogv`} type="video/ogg" />
+                    </video> : ''
+                }
             </a>
 
             {/* Actions buttons */}
@@ -53,8 +61,8 @@ export const Post = ({ name, userImg, postImg, likedBy, comments, date }) => {
                 </div>
 
                 <div className="comments">
-                    {comments.comment.map((c) => 
-                        <div className="comment">
+                    {comments.comment.map((c, i) =>
+                        <div key={i} className="comment">
                             <div>
                                 <a href=""> <div className="user-nicknamen">{c.nick}</div>
                                 </a>

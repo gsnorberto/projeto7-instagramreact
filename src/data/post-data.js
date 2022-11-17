@@ -8,9 +8,9 @@ export const postData = [
             pubDate: '1 hora'
         },
         {
-            name: 'avatar',
-            userImg: 'avatar3.png',
-            postImg: 'praia.png',
+            name: 'Mike',
+            userImg: 'avatar0.png',
+            video: 'video-urso',
             likedBy: {name: 'Billy', img: 'lateral4.png'},
             comments: {qnt: '645', comment: [{nick: 'sn_Marcus', text: 'Bela imagem!!!'}, {nick: 'paulo_souza', text: 'Linda foto. Top demais'}]},
             pubDate: '7 horas'
@@ -18,7 +18,7 @@ export const postData = [
         {
             name: 'avatar',
             userImg: 'avatar3.png',
-            postImg: 'praia.png',
+            postImg: 'praia2.png',
             likedBy: {name: 'Billy', img: 'lateral4.png'},
             comments: {qnt: '645', comment: [{nick: 'sn_Marcus', text: 'ok ok!!!'}, {nick: 'paulo_souza', text: 'Uauu'}]},
             pubDate: '1 hora'
