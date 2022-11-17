@@ -13,14 +13,14 @@ export const Stories = () => {
     ]
 
     return (
-        <div class="stories">
-            <div class="stories_slider">
-                {stories_Users.map((user) => <Storie img={user.img} name={user.name} />)}
+        <div className="stories">
+            <div className="stories_slider">
+                {stories_Users.map((user, i) => <Storie key={i} img={user.img} name={user.name} />)}
             </div>
 
             {/* Slider Button */}
             <a href="">
-                <ion-icon class="button-right" name="chevron-forward-circle"></ion-icon>
+                <ion-icon className="button-right" name="chevron-forward-circle"></ion-icon>
             </a>
         </div>
     )

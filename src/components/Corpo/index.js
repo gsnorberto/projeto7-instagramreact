@@ -5,8 +5,8 @@ import { Sidebar } from "../SideBar"
 export const Corpo = () => {
     return(
         <main>
-        <div class="container">
-            <div class="main-content">
+        <div className="container">
+            <div className="main-content">
                 <Stories />
                 <Posts />
             </div>
@@ -15,7 +15,7 @@ export const Corpo = () => {
         </div>
 
         {/* Mobile Devices */}
-        <div class="bottom-bar">
+        <div className="bottom-bar">
             <a href="">
                 <ion-icon name="home"></ion-icon>
             </a>

@@ -3,17 +3,17 @@ import React from 'react';
 export const NavBar = () =>{
     return (
         <header>
-        <div class="container">
+        <div className="container">
             {/* Instagram logo*/}
-            <div class="logo">
+            <div className="logo">
                 <a href="">
-                    <ion-icon class="icons-properties" name="logo-instagram"></ion-icon>
+                    <ion-icon className="icons-properties" name="logo-instagram"></ion-icon>
                 </a>
                 <a href="">
                     <img src="./assets/icons/logo.png" alt="logo do instagram" />
                 </a>
-                <a class="mobile-only" href="">
-                    <ion-icon class="icons-properties" name="paper-plane-outline"></ion-icon>
+                <a className="mobile-only" href="">
+                    <ion-icon className="icons-properties" name="paper-plane-outline"></ion-icon>
                 </a>
             </div>
 
@@ -21,7 +21,7 @@ export const NavBar = () =>{
             <input type="text" placeholder="Pesquisar" />
 
             {/* Right Side Icons*/}
-            <div class="icons_header icons-properties">
+            <div className="icons_header icons-properties">
                 <a href="">
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </a>
