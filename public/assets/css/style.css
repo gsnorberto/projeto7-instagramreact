@@ -6,8 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
 header{
     width: 100%;
     height: 54px;
@@ -327,6 +325,9 @@ ion-icon[name="ellipsis-horizontal"]{
     display: block;
     margin-bottom: 2px;
     font-size: 14px;
+}
+.desc-profile ion-icon{
+    margin-left: 4px;
 }
 
 .title-suggestions{
