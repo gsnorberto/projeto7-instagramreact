@@ -4,11 +4,15 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
     const [toggleBookMark, settoggleBookMark] = useState(false);
     const [toggleHeart, setToggleHeart] = useState(false);
     const [likes, setLikes] = useState(likesCount);
+    let countClick = 0;
 
+    // Marca e desmarca o botão de salvar post
     function bookmarkToggle(e){
         e.preventDefault();
         settoggleBookMark(!toggleBookMark);
     }
+
+    // Aumenta e diminui a quantidade de likes
     function changeLikesCount(e){
         e.preventDefault();
         if(toggleHeart){
@@ -19,9 +23,16 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
 
         setToggleHeart(!toggleHeart);
     }
+
+    // Aumenta a quantidade de like apenas quando há um duplo click na foto e ela ainda não foi curtida
     function changeLikesCountOnce(e){
         e.preventDefault();
-        if(!toggleHeart){
+        countClick ++;
+        setTimeout(() => {
+            countClick = 0;
+        }, 1000)
+
+        if(countClick == 2 && !toggleHeart){
             setToggleHeart(true);
             setLikes(likes+1);
         }
