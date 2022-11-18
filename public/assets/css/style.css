@@ -182,6 +182,7 @@ ion-icon[name="ellipsis-horizontal"]{
 }
 .post > a {
     width: 100%;
+    cursor: pointer;
 }
 .post > a > img{
     width: 100%;
@@ -197,12 +198,21 @@ ion-icon[name="ellipsis-horizontal"]{
     align-items: center;
     padding: 9px 15px;
 }
+.actions_post a{
+    cursor: pointer;
+}
 .actions_post > div{
     display: flex;
     align-items: center;
 }
 .actions_post > div > a {
     margin-right: 14px;
+}
+.actions_post ion-icon[name="heart"]{
+    color: red;
+}
+.actions_post ion-icon[name="heart-outline"] {
+    
 }
 
 .numberOfLikes_post{

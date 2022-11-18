@@ -1,21 +1,49 @@
-export const Post = ({ name, userImg, postImg, video, likedBy, comments, date }) => {
+import { useState } from "react";
+
+export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comments, date }) => {
+    const [toggleBookMark, settoggleBookMark] = useState(false);
+    const [toggleHeart, setToggleHeart] = useState(false);
+    const [likes, setLikes] = useState(likesCount);
+
+    function bookmarkToggle(e){
+        e.preventDefault();
+        settoggleBookMark(!toggleBookMark);
+    }
+    function changeLikesCount(e){
+        e.preventDefault();
+        if(toggleHeart){
+            setLikes(likes-1);
+        } else {
+            setLikes(likes+1);
+        }
+
+        setToggleHeart(!toggleHeart);
+    }
+    function changeLikesCountOnce(e){
+        e.preventDefault();
+        if(!toggleHeart){
+            setToggleHeart(true);
+            setLikes(likes+1);
+        }
+    }
+
     return (
         <div className="post">
             {/* Logo and Nickname  */}
             <div className="header_post">
                 <div>
-                    <a href="">
+                    <a>
                         <img src={`./media/imgs/${userImg}`} alt="" />
                         <div className="userName_post">{name}</div>
                     </a>
                 </div>
-                <a href="" className="moreOptions_post">
+                <a className="moreOptions_post">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </a>
             </div>
 
             {/* Image */}
-            <a href="">
+            <a onClick={changeLikesCountOnce}>
                 {postImg ?
                     <img src={`./media/imgs/${postImg}`} alt="" /> : ''
                 }
@@ -30,45 +58,45 @@ export const Post = ({ name, userImg, postImg, video, likedBy, comments, date })
             {/* Actions buttons */}
             <div className="actions_post">
                 <div>
-                    <a href="">
-                        <ion-icon className="icons-properties" name="heart-outline"></ion-icon>
+                    <a onClick={changeLikesCount}>
+                        <ion-icon  className="icons-properties" name={`${toggleHeart ? 'heart' : 'heart-outline'}`}></ion-icon>
                     </a>
-                    <a href="">
+                    <a>
                         <ion-icon className="icons-properties" name="chatbubble-outline"></ion-icon>
                     </a>
-                    <a href="">
+                    <a>
                         <ion-icon className="icons-properties" name="paper-plane-outline"></ion-icon>
                     </a>
                 </div>
-                <a href="">
-                    <ion-icon className="icons-properties" name="bookmark-outline"></ion-icon>
+                <a onClick={bookmarkToggle}>
+                    <ion-icon className="icons-properties" name={`${toggleBookMark ? 'bookmark' : 'bookmark-outline'}`}></ion-icon>
                 </a>
             </div>
 
             {/* Liked by */}
             <div className="numberOfLikes_post">
-                <a href=""><img src={`./media/imgs/${likedBy.img}`} alt="" /></a>
+                <a><img src={`./media/imgs/${likedBy.img}`} alt="" /></a>
 
-                Curtido por<span> {'\u00A0'} <a href="">{likedBy.name}</a> {'\u00A0'}</span> e <span>{'\u00A0'}<a
-                    href="">outras pessoas</a>{'\u00A0'}</span>
+                Curtido por<span> {'\u00A0'} <a>{likedBy.name}</a> {'\u00A0'}</span> e <span>{'\u00A0'}<a
+                >outras {likes} pessoas</a>{'\u00A0'}</span>
             </div>
 
             {/* Comments */}
 
             <div className="comments-area">
                 <div className="view-all-comments">
-                    <a href="">Ver todos os {comments.qnt} comentários</a>
+                    <a>Ver todos os {comments.qnt} comentários</a>
                 </div>
 
                 <div className="comments">
                     {comments.comment.map((c, i) =>
                         <div key={i} className="comment">
                             <div>
-                                <a href=""> <div className="user-nicknamen">{c.nick}</div>
+                                <a> <div className="user-nicknamen">{c.nick}</div>
                                 </a>
                                 {c.text}
                             </div>
-                            <a href=""><ion-icon name="heart-outline"></ion-icon></a>
+                            <a><ion-icon name="heart-outline"></ion-icon></a>
                         </div>
                     )}
                 </div>
@@ -80,9 +108,9 @@ export const Post = ({ name, userImg, postImg, video, likedBy, comments, date })
             </div>
             {/* Comment input */}
             <div className="comment-input">
-                <a className="emojis" href=""><ion-icon name="happy-outline"></ion-icon></a>
+                <a className="emojis"><ion-icon name="happy-outline"></ion-icon></a>
                 <input type="text" placeholder="Adicione um comentário..." />
-                <a className="button" href="">Publicar</a>
+                <a className="button">Publicar</a>
             </div>
         </div>
     );
