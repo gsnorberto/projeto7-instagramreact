@@ -39,7 +39,7 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
     }
 
     return (
-        <div className="post">
+        <div data-test="post" className="post">
             {/* Logo and Nickname  */}
             <div className="header_post">
                 <div>
@@ -54,12 +54,12 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
             </div>
 
             {/* Image */}
-            <a onClick={changeLikesCountOnce}>
+            <a>
                 {postImg ?
-                    <img src={`./media/imgs/${postImg}`} alt="" /> : ''
+                    <img data-test="post-image" onClick={changeLikesCountOnce} src={`./media/imgs/${postImg}`} alt="" /> : ''
                 }
                 {video ?
-                    <video width="320" height="240" autoPlay muted>
+                    <video data-test="post-image" onClick={changeLikesCountOnce} width="320" height="240" autoPlay muted>
                         <source src={`./media/videos/${video}.mp4`} type="video/mp4" />
                         <source src={`./media/videos/${video}.ogv`} type="video/ogg" />
                     </video> : ''
@@ -69,8 +69,8 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
             {/* Actions buttons */}
             <div className="actions_post">
                 <div>
-                    <a onClick={changeLikesCount}>
-                        <ion-icon  className="icons-properties" name={`${toggleHeart ? 'heart' : 'heart-outline'}`}></ion-icon>
+                    <a>
+                        <ion-icon data-test="like-post" onClick={changeLikesCount} className="icons-properties" name={`${toggleHeart ? 'heart' : 'heart-outline'}`}></ion-icon>
                     </a>
                     <a>
                         <ion-icon className="icons-properties" name="chatbubble-outline"></ion-icon>
@@ -79,8 +79,8 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
                         <ion-icon className="icons-properties" name="paper-plane-outline"></ion-icon>
                     </a>
                 </div>
-                <a onClick={bookmarkToggle}>
-                    <ion-icon className="icons-properties" name={`${toggleBookMark ? 'bookmark' : 'bookmark-outline'}`}></ion-icon>
+                <a>
+                    <ion-icon data-test="save-post" onClick={bookmarkToggle} className="icons-properties" name={`${toggleBookMark ? 'bookmark' : 'bookmark-outline'}`}></ion-icon>
                 </a>
             </div>
 
@@ -88,8 +88,7 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
             <div className="numberOfLikes_post">
                 <a><img src={`./media/imgs/${likedBy.img}`} alt="" /></a>
 
-                Curtido por<span> {'\u00A0'} <a>{likedBy.name}</a> {'\u00A0'}</span> e <span>{'\u00A0'}<a
-                >outras {likes} pessoas</a>{'\u00A0'}</span>
+                Curtido por<span> {'\u00A0'} <a>{likedBy.name}</a> {'\u00A0'}</span> e <span>{'\u00A0'} outras <a data-test="likes-number">{likes}</a> pessoas{'\u00A0'}</span>
             </div>
 
             {/* Comments */}

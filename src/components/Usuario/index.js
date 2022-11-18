@@ -27,15 +27,15 @@ export const Usuario = () => {
     }
 
     return (
-        <div className="owner-profile">
-            <a href=""><img onClick={enterImage} src={userImage} alt="" /></a>
+        <div data-test="user" className="owner-profile">
+            <a><img data-test="profile-image" onClick={enterImage} src={userImage} alt="" /></a>
 
             <div className="desc-profile">
-                <a href="">
+                <a>
                     <span>Shrek</span>
                     <div>
-                        {userName}
-                        <ion-icon onClick={enterName} name="pencil-outline"></ion-icon>
+                        <span data-test="name">{userName}</span>
+                        <ion-icon data-test="edit-name" onClick={enterName} name="pencil-outline"></ion-icon>
                     </div>
                 </a>
             </div>

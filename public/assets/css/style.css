@@ -318,6 +318,7 @@ ion-icon[name="ellipsis-horizontal"]{
 }
 .owner-profile > a{
     margin-right: 17px;
+    cursor: pointer;
 }
 .owner-profile > a > img{
     width: 56px;
@@ -338,6 +339,7 @@ ion-icon[name="ellipsis-horizontal"]{
 }
 .desc-profile ion-icon{
     margin-left: 4px;
+    cursor: pointer;
 }
 
 .title-suggestions{
