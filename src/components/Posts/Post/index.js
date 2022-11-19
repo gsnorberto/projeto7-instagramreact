@@ -4,6 +4,7 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
     const [toggleBookMark, settoggleBookMark] = useState(false);
     const [toggleHeart, setToggleHeart] = useState(false);
     const [likes, setLikes] = useState(likesCount);
+    const [displayHeart, setDisplayHeart] = useState(false);
     let countClick = 0;
 
     // Marca e desmarca o botão de salvar post
@@ -30,11 +31,16 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
         countClick ++;
         setTimeout(() => {
             countClick = 0;
-        }, 1000)
+        }, 500)
 
         if(countClick == 2 && !toggleHeart){
             setToggleHeart(true);
             setLikes(likes+1);
+
+            setDisplayHeart(true);
+            setTimeout(() => {
+                setDisplayHeart(false);
+            }, 500)
         }
     }
 
@@ -54,7 +60,7 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
             </div>
 
             {/* Image */}
-            <a>
+            <div className="post-image-area">
                 {postImg ?
                     <img data-test="post-image" onClick={changeLikesCountOnce} src={`./media/imgs/${postImg}`} alt="" /> : ''
                 }
@@ -64,7 +70,8 @@ export const Post = ({ name, userImg, postImg, likesCount, video, likedBy, comme
                         <source src={`./media/videos/${video}.ogv`} type="video/ogg" />
                     </video> : ''
                 }
-            </a>
+                {displayHeart ? <ion-icon name="heart"></ion-icon> : ''}
+            </div>
 
             {/* Actions buttons */}
             <div className="actions_post">
